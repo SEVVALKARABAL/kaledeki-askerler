@@ -36,17 +36,22 @@ export default function App() {
 		   
 */
 
-  return (
-    <div className="wrapper">
-      <div className="meadow-container">
-        <div className="castle-container">
-          {/*------Enemy elementleriniz aşağıda------*/}
-
-          {/*------Enemy elementleriniz yukarıda------*/}
-        </div>
+return (
+  <div className="wrapper">
+    <div className="meadow-container">
+      <div className="castle-container">
+        {enemiesData.map((enemy, id) => (
+          <Enemy
+            key={id}
+            currentImage={enemy.currentImage}
+            position={enemy.position}
+            orientation={enemy.orientation}
+          />
+        ))}
       </div>
-
-      <Button stateProps={{ gameRunning, setGameRunning }} />
     </div>
-  );
+
+    <Button stateProps={{ gameRunning, setGameRunning }} />
+  </div>
+);
 }
